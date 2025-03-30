@@ -33,5 +33,5 @@ You are welcome to use LLMs to help you with anything you need for this project.
 ## Good Luck!
 I'm really excited to see what you produce! Try your best with it and don't worry if you can't figure out everything. Submit whatever you have as a PR following the template in [pr_template.md](pr_template.md). I hope you enjoy working on this and feel proud enough of it to use it as a project or a demo of your abilities on your portfolio :)
 
-### *~ Off the coast of Athens ~*
+### ~ *Off the coast of Athens* ~
 <img src="images/sunset.jpeg" alt="Sunset off the coast of Athens"/>
