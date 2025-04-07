@@ -1,7 +1,7 @@
 # 🌅 Impact Team Technical Assessment 2025-2026 🌅
 Congratulations on reaching the next step of the application process! This phase is the most important one in the entire process, as it assesses your ability to create a web app using both tools you're familiar with and ones you probably aren't and will have to pick up as you go. This is one of the most important skills for a web developer to cultivate.
 
-By **April 22nd at 11:59pm**, you must fork this repository and submit a PR (pull request) to this repository with both your completed version of the app and a screen recording of you walking me through your app's features.
+By **Friday, April 25th, 2025 at 11:59pm**, you must fork this repository and submit a PR (pull request) to this repository with both your completed version of the app and a screen recording of you walking me through your app's features.
 
 ## Your Task
 Living in Boston, a city with what feels like very erratic sunrise and sunset times, I have always been interested in sunrise and sunset times across the world. I want you to make a full-stack web app using React, NodeJS, and MongoDB that allows the user to easily view sunrise and sunset times anywhere across the world, and tell them about places in totally different parts of the world with similar times.
