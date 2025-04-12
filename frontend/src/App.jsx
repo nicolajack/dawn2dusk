@@ -1,6 +1,7 @@
 // import statements for app componenets and css
 import Background from './components/background/background';
 import Logo from './components/logo/logo';
+import Navbar from './components/navbar/navbar';
 import './App.css';
 import darkToggle from './assets/darktoggle.png';
 
@@ -12,6 +13,7 @@ function App() {
     return (
         <>
             <Background />
+            <Navbar />
             <button id="darkMode"onClick={darkMode}><img width="30px" height="30px" src={darkToggle}/></button>
             <Logo />
             <h1 id="info">simply drag the pin to any location you’d like, and <br /> 

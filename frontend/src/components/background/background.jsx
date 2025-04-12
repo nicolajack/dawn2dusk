@@ -7,6 +7,7 @@ import { getSunrise, getSunset } from 'sunrise-sunset-js';
 function Background() {
     const [userLocation, setUserLocation] = useState([51.505, -0.09]);
     const [locationLoaded, setLocationLoaded] = useState(false);
+    const [similarPlace, setSimilarPlace] = useState("");
 
     // get user location
     useEffect(() => {
@@ -16,6 +17,7 @@ function Background() {
                     const { latitude, longitude } = position.coords;
                     setUserLocation([latitude, longitude]);
                     setLocationLoaded(true);
+                    getPlace(latitude, longitude);
                 },
                 (error) => {
                     console.error("error getting location", error);
@@ -27,6 +29,40 @@ function Background() {
             setLocationLoaded(true);
         }
     }, []);
+
+    // to get the similar location
+    const getSimilarPlace = async (location) => {
+        if (!location) return;
+        setSimilarPlace("Loading...");
+
+        try {
+            const response = await fetch('http://localhost:4000/findSimilarPlace', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userLocation: location }),
+            });
+
+            if (!response.ok) {
+                console.log("Error fetching similar place");
+            }
+
+            const data = await response.json();
+            setSimilarPlace(data.similarPlace);
+        } catch (error) {
+            console.error("Error fetching similar place:", error);
+            setSimilarPlace("Error fetching similar place");
+            console.log("Error fetching similar place");
+        } 
+    }
+
+    // to refresh the similar location everytime the user drags the marker
+    useEffect(() => {
+        if (userLocation) {
+            getSimilarPlace(userLocation);
+        }
+    }, [userLocation]);
 
     // for sunrise set times
     const sunset = getSunset(userLocation[0], userLocation[1]);
@@ -59,11 +95,13 @@ function Background() {
                     <span>
                     <span style={{ color: "#F0CD79" }}>sunrise: {sunrise.toLocaleTimeString()}</span> <br />
                     <span style={{ color: "#524982" }}>sunset: {sunset.toLocaleTimeString()}</span> <br />
+                    <span style={{ color: "#D775BB" }}>{similarPlace}</span>
                     </span>
                 </Popup>
             </Marker>
         );
     }
+
     // return the background div
     return (
         <div className="bg">
