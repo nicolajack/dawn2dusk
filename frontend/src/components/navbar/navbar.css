@@ -1,17 +1,19 @@
-#navbarToggle {
+#navbar {
     position: absolute;
-    top: .1vh;
+    top: 2vh;
     left: 2vh;
     z-index: 3;
     pointer-events: auto;
     padding: 10px;
     height: 55px;
-    width: 55px;
+    width: auto;
+    color: black;
     background-color: #ffffff;
     border-color: #ffffff;
+    display: flex;
+    align-items: center;
 }
 
-#navbarToggle:hover {
-    background-color: #e1dfdf;
-    border-color: #e1dfdf;
+button {
+    color: black;
 }

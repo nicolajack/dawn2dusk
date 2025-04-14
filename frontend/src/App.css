@@ -2,7 +2,14 @@ body {
     font-family: "instrument-serif", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background: #A3BED5;
+    background-color: #FFB487;
+    /* comment out the following if i decide not to go w an image background */
+    background-image: url("./assets/sunrise5.jpg");
+    height: 100vh;
+    width: 100vw;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
     color: #161515;
     pointer-events: none;
 }
@@ -23,7 +30,12 @@ h1 {
 }
 
 .dark-mode {
-    background: #333448;
+    background-color: #1F2835;
+    /* comment out the following if i decide not to go w an image background */
+    background-image: url("./assets/sunset.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
 }
 
 #darkMode {

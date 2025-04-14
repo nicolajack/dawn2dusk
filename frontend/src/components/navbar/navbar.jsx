@@ -1,17 +1,22 @@
+import React, { useState } from 'react';
 import './navbar.css';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
-    function toggleMenu() {
-        const menu = document.querySelector('.drop-down');
-        menu.classList.toggle('closed');
-    }
+
     return (
-        <nav>
-        <ul class="drop-down closed">
-            <li><a></a></li>
-            <li><a></a></li>
-        </ul>
-    </nav>
+        <div id="navbar">
+            <Link to= "/">
+                <button>
+                    home
+                </button>
+            </Link>
+            <Link to= "/logs">
+                <button>
+                    logs
+                </button>
+            </Link>
+        </div>
     )
 }
 

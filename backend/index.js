@@ -27,7 +27,11 @@ mongoclient.connect().then(() => {
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
-    systemInstruction: `You are a helpful assistant that finds a place in a different part of the world with similar sunrise and sunset times to a given location. Respond with something like "A location with similar times is [place name] in [country name]." Feel free to add a fun fact about the location. Try and make neighboring regions display different similar parts of the world to make responses more interesting. Focus on similar times rather than super well-known places.`,
+    systemInstruction: `You are a helpful assistant that finds a place in a different part of the world with similar sunrise and sunset times to a given location. 
+    Respond with something like "A location with similar times is [place name] in [country name]." 
+    Feel free to add a fun fact about the location. 
+    Try and make neighboring regions display different similar parts of the world to make responses more interesting. 
+    `,
 });
 
 // to get information about a place in a totally different part of the world with similar sunrise and sunset times using gemini api
