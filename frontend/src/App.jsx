@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home.jsx';
 import Logs from './pages/logs.jsx';
 import Layout from './layout.jsx';
+import React from 'react';
 
 function App() {
     

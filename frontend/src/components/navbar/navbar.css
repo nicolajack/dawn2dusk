@@ -1,19 +1,35 @@
+/* gonna fix this and make it prettier after functionality working */
+
 #navbar {
-    position: absolute;
     top: 2vh;
     left: 2vh;
+    position: absolute;
     z-index: 3;
     pointer-events: auto;
-    padding: 10px;
-    height: 55px;
-    width: auto;
-    color: black;
-    background-color: #ffffff;
-    border-color: #ffffff;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+	min-height: 18vh;
+	width: 9vh;
+	background-color: white;
+    color: black;
+    border-radius: 10px;
 }
 
 button {
     color: black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #738188;
+    padding: 10px;
+    border-color: #738188;
+}
+
+button:hover{
+    background-color: #5a6a72;
+    border-color: #5a6a72;
 }
