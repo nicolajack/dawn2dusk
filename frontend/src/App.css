@@ -47,11 +47,11 @@ h1 {
     padding: 10px;
     height: 55px;
     width: auto;
-    background-color: #ffffff;
-    border-color: #ffffff;
+    background-color: #738188;
+    border-color: #738188;
 }
 
 #darkMode:hover {
-    background-color: #e1dfdf;
-    border-color: #e1dfdf;
+    background-color: #5a6a72;
+    border-color: #5a6a72;
 }

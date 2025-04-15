@@ -58,19 +58,14 @@ app.post('/findSimilarPlace', async (req, res) => {
     }
 });
 
-
-
-
 app.get('/', (req, res) => {
     res.send('Backend is running');
 });
-
 
 // to declare what port the server is running on
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 });
-
 
 // to log to mongodb
 app.get('/logs', async (req, res) => {
@@ -82,3 +77,36 @@ app.get('/logs', async (req, res) => {
         res.status(500).json({ message: 'Error' })
     }
 }) 
+
+app.post('/add', async (req, res) => {
+    try {
+        const log = req.body;
+        
+        if (!log.userLocation || !log.similarPlace || !log.timestamp || Object.keys(log).length !== 3) {
+            res.status(400).json({message: 'Bad Request' })
+            return
+        }
+        await mongoclient.db('dawn2dusk').collection('logs').insertOne(log)
+        res.status(201).json({ message: 'Success' })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+})
+
+/*
+app.post('/delete', async (req, res) => {
+    try {
+        const log = req.body
+        if (!log.input || !log.response || Object.keys(log).length !== 2) {
+            res.status(400).json({ message: 'Bad Request' })
+            return
+        }
+        await mongoclient.db('jdt-website').collection('logs').deleteOne(log)
+        res.status(201).json({ message: 'Success' })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+})
+*/

@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import darkToggle from '../../assets/darktoggle.png';
 import logoImage from '../../assets/d2dlogo.png';
 import './logo.css';
 
 function Logo() {
+    
     useEffect(() => {
         const updateLogoBackground = () => {
             const bodyBackgroundColor = getComputedStyle(document.body).backgroundColor;
