@@ -6,12 +6,17 @@
     display: block;
     margin: auto;
     border-radius: 10px;
+    overflow: visible;
+    color: black;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 .logsContainer ul {
     list-style: none;
     padding: 0;
     z-index: 4;
+    color: black;
 }
 
 .logsContainer li {
@@ -50,7 +55,7 @@
 
 #darkMode:hover {
     background-color: #5a6a72;
-    border-color: #5a6a72;
+    border-color: #5a6a72
 }
 
 .logsLogo {
@@ -59,4 +64,14 @@
     top: 2vh;
     margin: auto;
     display: block;
+}
+
+.x {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }

@@ -23,25 +23,50 @@ function Logs(){
     
             fetchLogs();
         }, []);
+
+        const deleteLog = async (id) => {
+            try {
+                const response = await fetch(`http://localhost:4000/delete`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id}),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                setLogs((prevLogs) => prevLogs.filter((log) => log._id !== id));
+            } catch (error) {
+                console.error('Error deleting log:', error);
+            }
+        };
         
         function darkMode() {
             const element = document.body;
             element.classList.toggle("dark-mode");
         }
 
+
+        
+
+
     return (
         <div className="logs">
             <img src={logo} alt="logo" className="logsLogo" />
+            // a comment? 
             <button id="darkMode"onClick={darkMode}><img width="30px" height="30px" src={darkToggle}/></button>
             <div className="logsContainer">
                 <h1>logs!!</h1>
                 <ul>
-                    {logs.map((log, index) => (
-                        <li key={index}>
-                            <p><strong>Sunrise:</strong> {log.sunrise}</p>
-                            <p><strong>Sunset:</strong> {log.sunset}</p>
+                    {logs.map((log) => (
+                        <li key={log._id}>
+                            <p><strong>Location:</strong> {log.userLocation}</p>
                             <p><strong>Similar Location:</strong> {log.similarLocation}</p>
                             <p><strong>Timestamp:</strong> {log.timestamp}</p>
+                            <button className="x" onClick={() => deleteLog(log._id)}>x</button>
                         </li>
                     ))}
                 </ul>

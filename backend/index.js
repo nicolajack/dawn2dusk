@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { MongoClient } from 'mongodb'
+import { ObjectId } from 'mongodb'
 
 // configure environment to hide apikey and mongourl
 dotenv.config()
@@ -94,19 +95,25 @@ app.post('/add', async (req, res) => {
     }
 })
 
-/*
+// to delete a log from the database
+
 app.post('/delete', async (req, res) => {
     try {
-        const log = req.body
-        if (!log.input || !log.response || Object.keys(log).length !== 2) {
-            res.status(400).json({ message: 'Bad Request' })
-            return
+        const { id } = req.body;
+
+        if (!id) {
+            return res.status(400).json({ message: 'Log ID is required' });
         }
-        await mongoclient.db('jdt-website').collection('logs').deleteOne(log)
-        res.status(201).json({ message: 'Success' })
+
+        const result = await mongoclient.db('dawn2dusk').collection('logs').deleteOne({ _id: new ObjectId(id) });
+
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ message: 'Log not found' });
+        }
+
+        res.status(200).json({ message: 'Log deleted successfully' });
     } catch (error) {
-        console.error(error)
-        res.status(500).json({ message: 'Error' })
+        console.error('Error deleting log:', error);
+        res.status(500).json({ message: 'Error deleting log' });
     }
-})
-*/
+});
