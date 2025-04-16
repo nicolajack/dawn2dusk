@@ -1,20 +1,22 @@
 /* gonna fix this and make it prettier after functionality working */
 
 #navbar {
-    top: 2vh;
-    left: 2vh;
     position: absolute;
     z-index: 3;
     pointer-events: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-	min-height: 18vh;
-	width: 9vh;
-	background-color: white;
+    justify-content: flex-start;
+	min-height: auto;
+	width: auto;
+	background-color: #ffffff;
     color: black;
+    padding: 20px;
     border-radius: 10px;
+    top: 40%;
+    transform: translate(0%, -50%);
+    gap: 20px;
 }
 
 button {
@@ -24,12 +26,20 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #738188;
     padding: 10px;
-    border-color: #738188;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
 }
 
 button:hover{
-    background-color: #5a6a72;
-    border-color: #5a6a72;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+    background-color: #ffffff;
+    border: none;
+
+}
+
+#logoimg {
+    color: white;
 }

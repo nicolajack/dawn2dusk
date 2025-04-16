@@ -1,21 +1,24 @@
 .logsContainer {
-    width: 85vw;
+    width: 80vw;
     height: 80vh;
     top: 4vh;
     background-color: white;
     display: block;
     margin: auto;
     border-radius: 10px;
-    overflow: visible;
     color: black;
-    font-family: Helvetica, sans-serif;
+    font-family: "National Park", sans-serif;
     font-size: 16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;   
+    pointer-events: auto;
 }
 
 .logsContainer ul {
     list-style: none;
     padding: 0;
-    z-index: 4;
+    margin: 0;
     color: black;
 }
 
@@ -23,45 +26,27 @@
     margin-bottom: 20px;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    z-index: 4;
+    word-wrap: break-word;
 }
 
 .logsContainer li:last-child {
     border-bottom: none;
-    z-index: 4;
 }
 
 .dark-mode {
     background-color: #1F2835;
-    /* comment out the following if i decide not to go w an image background */
+    /* comment out the following if i decide not to go w an image background 
     background-image: url("./assets/sunset.jpg");
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image 
+    background-repeat: no-repeat; /* Do not repeat the image 
     background-size: cover;
-}
-
-#darkMode {
-    position: absolute;
-    top: .1vh;
-    right: 2vh;
-    z-index: 3;
-    pointer-events: auto;
-    padding: 10px;
-    height: 55px;
-    width: auto;
-    background-color: #738188;
-    border-color: #738188;
-}
-
-#darkMode:hover {
-    background-color: #5a6a72;
-    border-color: #5a6a72
+    */
 }
 
 .logsLogo {
     width: 80vh;
     height: auto;
-    top: 2vh;
+    top: 100vh;
     margin: auto;
     display: block;
 }
@@ -74,4 +59,8 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+}
+
+body {
+    overflow: hidden;
 }

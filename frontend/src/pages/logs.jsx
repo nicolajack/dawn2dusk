@@ -1,12 +1,11 @@
 import './logs.css';
-import darkToggle from '../assets/darktoggle.png';
 import React from 'react';
 import logo from '../assets/d2dlogo.png';
 import { useEffect, useState } from 'react';
 
 function Logs(){
     const [logs, setLogs] = useState([]);
-    
+
         useEffect(() => {
             const fetchLogs = async () => {
                 try {
@@ -56,15 +55,12 @@ function Logs(){
     return (
         <div className="logs">
             <img src={logo} alt="logo" className="logsLogo" />
-            // a comment? 
-            <button id="darkMode"onClick={darkMode}><img width="30px" height="30px" src={darkToggle}/></button>
             <div className="logsContainer">
-                <h1>logs!!</h1>
                 <ul>
                     {logs.map((log) => (
                         <li key={log._id}>
                             <p><strong>Location:</strong> {log.userLocation}</p>
-                            <p><strong>Similar Location:</strong> {log.similarLocation}</p>
+                            <p><strong>Similar Location:</strong> {log.similarPlace}</p>
                             <p><strong>Timestamp:</strong> {log.timestamp}</p>
                             <button className="x" onClick={() => deleteLog(log._id)}>x</button>
                         </li>

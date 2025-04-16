@@ -12,6 +12,9 @@ body {
     background-size: cover;
     color: #161515;
     pointer-events: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 h1 {
@@ -24,12 +27,12 @@ h1 {
 }
 
 #info {
-    margin-top: 60vh;
+    margin-top: 63vh;
     z-index: 3;
     pointer-events: none;
 }
 
-.dark-mode {
+body.dark-mode {
     background-color: #1F2835;
     /* comment out the following if i decide not to go w an image background */
     background-image: url("./assets/sunset.jpg");
@@ -38,20 +41,6 @@ h1 {
     background-size: cover;
 }
 
-#darkMode {
-    position: absolute;
-    top: .1vh;
-    right: 2vh;
-    z-index: 3;
-    pointer-events: auto;
-    padding: 10px;
-    height: 55px;
-    width: auto;
-    background-color: #738188;
-    border-color: #738188;
-}
-
-#darkMode:hover {
-    background-color: #5a6a72;
-    border-color: #5a6a72;
+body {
+    overflow: hidden;
 }

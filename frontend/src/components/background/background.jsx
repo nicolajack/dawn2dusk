@@ -53,16 +53,15 @@ function Background() {
         } catch (error) {
             console.error("Error fetching similar place:", error);
             setSimilarPlace("Error fetching similar place");
-            console.log("Error fetching similar place");
         } 
     }
 
     // to refresh the similar location everytime the user drags the marker
     useEffect(() => {
-        if (userLocation) {
+        if (locationLoaded) {
             getSimilarPlace(userLocation);
         }
-    }, [userLocation]);
+    }, [userLocation, locationLoaded]);
 
     // for sunrise set times
     const sunset = getSunset(userLocation[0], userLocation[1]);
@@ -93,9 +92,11 @@ function Background() {
             >
                 <Popup minWidth={150} className="popup">
                     <span>
-                    <span style={{ color: "#F0CD79" }}>sunrise: {sunrise.toLocaleTimeString()}</span> <br />
-                    <span style={{ color: "#524982" }}>sunset: {sunset.toLocaleTimeString()}</span> <br />
-                    <span style={{ color: "#D775BB" }}>{similarPlace}</span>
+                    <span style={{ color: "#FFB487" }}>sunrise: {sunrise.toLocaleTimeString()}</span> <br />
+                    <span style={{ color: "#415777" }}>sunset: {sunset.toLocaleTimeString()}</span> <br />
+                    <br />
+                    <span style={{ color: "#151515" }}>your location has similar times to:</span> <br />
+                    <span style={{ color: "#151515" }}>{similarPlace}</span>
                     </span>
                 </Popup>
             </Marker>
@@ -111,7 +112,7 @@ function Background() {
                 <MapContainer 
                     center={userLocation} 
                     zoom={5} 
-                    scrollWheelZoom={false}
+                    scrollWheelZoom={true}
                     style={{ height: "100%", width: "100%" }}
                 >
                     <TileLayer

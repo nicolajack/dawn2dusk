@@ -29,8 +29,7 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     systemInstruction: `You are a helpful assistant that finds a place in a different part of the world with similar sunrise and sunset times to a given location. 
-    Respond with something like "A location with similar times is [place name] in [country name]." 
-    Feel free to add a fun fact about the location. 
+    Respond with only the name of the place and its country, without any additional information. 
     Try and make neighboring regions display different similar parts of the world to make responses more interesting. 
     `,
 });
@@ -48,10 +47,11 @@ app.post('/findSimilarPlace', async (req, res) => {
         const response = result.response;
         const text = response.text();
         res.status(200).json({ similarPlace: text });
+        
         await mongoclient.db('dawn2dusk').collection('logs').insertOne({
             userLocation: userLocation,
             similarPlace: text,
-            timestamp: new Date()
+            timestamp: new Date().toLocaleTimeString(),
         })
     } catch (error) {
         console.error(error);
@@ -94,6 +94,7 @@ app.post('/add', async (req, res) => {
         res.status(500).json({ message: 'Error' })
     }
 })
+
 
 // to delete a log from the database
 
