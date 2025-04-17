@@ -59,10 +59,14 @@ function Logs(){
                 <ul>
                     {logs.map((log) => (
                         <li key={log._id}>
-                            <p><strong>Location:</strong> {log.userLocation}</p>
-                            <p><strong>Similar Location:</strong> {log.similarPlace}</p>
-                            <p><strong>Timestamp:</strong> {log.timestamp}</p>
-                            <button className="x" onClick={() => deleteLog(log._id)}>x</button>
+                            <div id="wrapper">
+                                <div id="textbox">
+                                    <p><strong>Location:</strong> {log.userLocation}</p>
+                                    <p><strong>Similar Location:</strong> {log.similarPlace}</p>
+                                    <p><strong>Timestamp:</strong> {log.timestamp}</p>
+                                </div>
+                                <button className="x" onClick={() => deleteLog(log._id)}>x</button>
+                            </div>
                         </li>
                     ))}
                 </ul>

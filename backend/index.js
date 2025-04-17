@@ -51,7 +51,7 @@ app.post('/findSimilarPlace', async (req, res) => {
         await mongoclient.db('dawn2dusk').collection('logs').insertOne({
             userLocation: userLocation,
             similarPlace: text,
-            timestamp: new Date().toLocaleTimeString(),
+            timestamp: new Date().toString(),
         })
     } catch (error) {
         console.error(error);

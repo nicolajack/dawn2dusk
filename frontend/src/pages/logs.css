@@ -64,3 +64,19 @@
 body {
     overflow: hidden;
 }
+
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+#textbox {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    margin-right: 50vw;
+    width: 40vw;
+}
