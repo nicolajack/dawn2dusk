@@ -36,7 +36,7 @@ function Background() {
         setSimilarPlace("Loading...");
 
         try {
-            const response = await fetch('http://localhost:4000/findSimilarPlace', {
+            const response = await fetch('https://technical-assessment-25-26-production.up.railway.app/findSimilarPlace', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

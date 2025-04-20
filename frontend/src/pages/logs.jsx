@@ -9,7 +9,7 @@ function Logs(){
         useEffect(() => {
             const fetchLogs = async () => {
                 try {
-                    const response = await fetch('http://localhost:4000/logs');
+                    const response = await fetch('https://technical-assessment-25-26-production.up.railway.app/logs');
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
@@ -25,7 +25,7 @@ function Logs(){
 
         const deleteLog = async (id) => {
             try {
-                const response = await fetch(`http://localhost:4000/delete`, {
+                const response = await fetch(`https://technical-assessment-25-26-production.up.railway.app/delete`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
