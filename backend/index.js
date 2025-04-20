@@ -31,6 +31,7 @@ const model = genAI.getGenerativeModel({
     systemInstruction: `You are a helpful assistant that finds a place in a different part of the world with similar sunrise and sunset times to a given location. 
     Respond with only the name of the place and its country, without any additional information. 
     Try and make neighboring regions display different similar parts of the world to make responses more interesting. 
+    In particular, make neighboring U.S. states display different similar parts of the world.
     `,
 });
 
