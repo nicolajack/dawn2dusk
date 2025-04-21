@@ -1,13 +1,24 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
 import './background.css';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { getSunrise, getSunset } from 'sunrise-sunset-js';
+import NewMarker from '../../assets/marker.png';
 
 function Background() {
     const [userLocation, setUserLocation] = useState([51.505, -0.09]);
     const [locationLoaded, setLocationLoaded] = useState(false);
     const [similarPlace, setSimilarPlace] = useState("");
+
+    // defining the icon for the marker
+    const MarkerIcon = L.icon({
+        iconUrl: NewMarker,
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+        popupAnchor: [0, -40],
+    });
+
 
     // get user location
     useEffect(() => {
@@ -89,6 +100,7 @@ function Background() {
             eventHandlers={eventHandlers}
             position={userLocation}
             ref={markerRef}
+            icon={MarkerIcon}
             >
                 <Popup minWidth={150} className="popup">
                     <span>
