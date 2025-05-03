@@ -42,11 +42,6 @@ function Logs(){
                 console.error('Error deleting log:', error);
             }
         };
-        
-        function darkMode() {
-            const element = document.body;
-            element.classList.toggle("dark-mode");
-        }
 
 
         
