@@ -8,4 +8,6 @@
   
   [![My Skills](https://skillicons.dev/icons?i=react,js,html,css,mongodb,figma)](https://skillicons.dev)
   
+  This is a simple full-stack site that allows users to check the sunrise and sunset time of any location in the world by simply dragging the cursor to a location. A pop-up will return the times in the user's local timezone. The site also utilizes Gemini API to fetch a location with similar sunrise and sunset times to the selected location. There is a page with logs of places the user has selected, and a light/dark mode toggle.
+  
 </div>
