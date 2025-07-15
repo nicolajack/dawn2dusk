@@ -3,3 +3,9 @@
   
   # 🌅 Dawn2Dusk 🌅
 </div>
+
+<div align="center">
+  
+  [![My Skills](https://skillicons.dev/icons?i=react,js,html,css,mongodb,figma)](https://skillicons.dev)
+  
+</div>
