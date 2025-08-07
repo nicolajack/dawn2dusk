@@ -28,7 +28,6 @@ function Background() {
                     const { latitude, longitude } = position.coords;
                     setUserLocation([latitude, longitude]);
                     setLocationLoaded(true);
-                    getPlace(latitude, longitude);
                 },
                 (error) => {
                     console.error("error getting location", error);
@@ -44,10 +43,10 @@ function Background() {
     // to get the similar location
     const getSimilarPlace = async (location) => {
         if (!location) return;
-        setSimilarPlace("Loading...");
+        setSimilarPlace("loading...");
 
         try {
-            const response = await fetch('https://technical-assessment-25-26-production.up.railway.app/findSimilarPlace', {
+            const response = await fetch('http://localhost:4000/findSimilarPlace' || 'https://technical-assessment-25-26-production.up.railway.app/findSimilarPlace', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,15 +55,15 @@ function Background() {
             });
 
             if (!response.ok) {
-                console.log("Error fetching similar place");
+                console.log("error fetching similar place");
             }
 
             const data = await response.json();
             setSimilarPlace(data.similarPlace);
         } catch (error) {
-            console.error("Error fetching similar place:", error);
-            setSimilarPlace("Error fetching similar place");
-        } 
+            console.error("error fetching similar place:", error);
+            setSimilarPlace("error fetching similar place");
+        }
     }
 
     // to refresh the similar location everytime the user drags the marker
