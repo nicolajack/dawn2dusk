@@ -36,9 +36,33 @@ body.dark-mode {
     background-color: #1F2835;
     /* comment out the following if i decide not to go w an image background */
     background-image: url("./assets/sunset.jpg");
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+        .container {
+        background-color: #1F2835;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .popup .leaflet-popup-content-wrapper {
+        border-color: #555555;
+        background-color: #ffffff;
+        color: #f0f0f0;
+    }
+    .leaflet-layer,
+    .leaflet-control-zoom-in,
+    .leaflet-control-zoom-out,
+    .leaflet-control-attribution {
+        filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+    }
+
+    #navbar {
+        background-color: #1F2835;
+    }
+    button {
+        background-color: #1F2835;
+        color: #f0f0f0;
+    }
 }
 
 body {
