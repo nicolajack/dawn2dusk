@@ -21,6 +21,7 @@
         "react-leaflet": "^5.0.0",
         "react-router-dom": "^7.5.0",
         "sunrise-sunset-js": "^2.2.1",
+        "tz-lookup": "^6.1.25",
         "vercel": "^37.12.1"
     },
     "devDependencies": {
