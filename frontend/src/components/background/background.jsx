@@ -43,6 +43,19 @@ function Background() {
         }
     }, []);
 
+    const getlocationName = async (lat, lng) => {
+        try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+            const data = await response.json();
+            const city = data.address.city || data.address.town || data.address.village || data.address.hamlet || data.address.county || "";
+            const state = data.address.state || "";
+            const country = data.address.country || "";
+            setLocationName(`${city}, ${state}, ${country}`);
+        } catch (error) {
+            console.error("error fetching location name:", error);
+        }
+    }
+
     // to get the similar location
     const getSimilarPlace = async (location) => {
         if (!location) return;
@@ -75,6 +88,8 @@ function Background() {
             getSimilarPlace(userLocation);
             const newTZ = tzlookup(userLocation[0], userLocation[1]);
             setTimezone(newTZ || "EST");
+
+            getlocationName(userLocation[0], userLocation[1]);
         }
     }, [userLocation, locationLoaded]);
 
@@ -136,7 +151,8 @@ function Background() {
             >
                 <Popup minWidth={150} className="popup">
                     <span>
-                    <span style={{ color: "#151515" }}>location: {userLocation}</span> <br />
+                    <span style={{ color: "#151515" }}>location: {locationName}</span> <br />
+                    <br />
                     <span style={{ color: "#FFB487" }}>sunrise: {localTimes.sunrise}</span> <br />
                     <span style={{ color: "#415777" }}>sunset: {localTimes.sunset}</span> <br />
                     <br />
