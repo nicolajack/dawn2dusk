@@ -8,8 +8,9 @@ import NewMarker from '../../assets/marker.png';
 import tzlookup from "tz-lookup";
 
 function Background() {
-    const [userLocation, setUserLocation] = useState([51.505, -0.09]);
+    const [userLocation, setUserLocation] = useState([42.3505, -71.1054]);
     const [locationLoaded, setLocationLoaded] = useState(false);
+    const [locationName, setLocationName] = useState("Boston");
     const [similarPlace, setSimilarPlace] = useState("");
     const [timezone, setTimezone] = useState("EST");
 
@@ -135,6 +136,7 @@ function Background() {
             >
                 <Popup minWidth={150} className="popup">
                     <span>
+                    <span style={{ color: "#151515" }}>location: {userLocation}</span> <br />
                     <span style={{ color: "#FFB487" }}>sunrise: {localTimes.sunrise}</span> <br />
                     <span style={{ color: "#415777" }}>sunset: {localTimes.sunset}</span> <br />
                     <br />
