@@ -1,5 +1,6 @@
 {
     "dependencies": {
-        "mongodb": "^6.15.0"
+        "mongodb": "^6.15.0",
+        "tz-lookup": "^6.1.25"
     }
 }

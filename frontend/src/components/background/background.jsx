@@ -5,11 +5,13 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { getSunrise, getSunset } from 'sunrise-sunset-js';
 import NewMarker from '../../assets/marker.png';
+import tzlookup from "tz-lookup";
 
 function Background() {
     const [userLocation, setUserLocation] = useState([51.505, -0.09]);
     const [locationLoaded, setLocationLoaded] = useState(false);
     const [similarPlace, setSimilarPlace] = useState("");
+    const [timezone, setTimezone] = useState("EST");
 
     // defining the icon for the marker
     const MarkerIcon = L.icon({
@@ -70,12 +72,10 @@ function Background() {
     useEffect(() => {
         if (locationLoaded) {
             getSimilarPlace(userLocation);
+            const newTZ = tzlookup(userLocation[0], userLocation[1]);
+            setTimezone(newTZ || "EST");
         }
     }, [userLocation, locationLoaded]);
-
-    // for sunrise set times
-    const sunset = getSunset(userLocation[0], userLocation[1]);
-    const sunrise = getSunrise(userLocation[0], userLocation[1]);
 
     function DraggableMarker() {
         const markerRef = useRef(null);
@@ -93,6 +93,38 @@ function Background() {
             [setUserLocation]
         );
 
+        const getLocalTimes = () => {
+            const sunrise = getSunrise(userLocation[0], userLocation[1]);
+            const sunset = getSunset(userLocation[0], userLocation[1]);
+            
+            try {
+                const sunriseLocal = sunrise.toLocaleTimeString("en-US", {
+                    timeZone: timezone,
+                    hour12: true,
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+                
+                const sunsetLocal = sunset.toLocaleTimeString("en-US", {
+                    timeZone: timezone,
+                    hour12: true,
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+                
+                return { sunrise: sunriseLocal, sunset: sunsetLocal };
+            } catch (error) {
+                console.error("Error formatting times:", error);
+                // Fallback to default formatting if timezone is invalid
+                return {
+                    sunrise: sunrise.toLocaleTimeString("en-US", { hour12: true, hour: 'numeric', minute: '2-digit' }),
+                    sunset: sunset.toLocaleTimeString("en-US", { hour12: true, hour: 'numeric', minute: '2-digit' })
+                };
+            }
+        };
+
+        const localTimes = getLocalTimes();
+
         return (
             <Marker
             draggable={true}
@@ -103,8 +135,8 @@ function Background() {
             >
                 <Popup minWidth={150} className="popup">
                     <span>
-                    <span style={{ color: "#FFB487" }}>sunrise: {sunrise.toLocaleTimeString()}</span> <br />
-                    <span style={{ color: "#415777" }}>sunset: {sunset.toLocaleTimeString()}</span> <br />
+                    <span style={{ color: "#FFB487" }}>sunrise: {localTimes.sunrise}</span> <br />
+                    <span style={{ color: "#415777" }}>sunset: {localTimes.sunset}</span> <br />
                     <br />
                     <span style={{ color: "#151515" }}>your location has similar times to:</span> <br />
                     <span style={{ color: "#151515" }}>{similarPlace}</span>
