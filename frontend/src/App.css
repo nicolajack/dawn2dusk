@@ -47,8 +47,8 @@ body.dark-mode {
     }
 
     .popup .leaflet-popup-content-wrapper {
-        border-color: #555555;
-        background-color: #ffffff;
+        background: rgba(31, 40, 53, 0.85);
+        border-left-color: #415777;
         color: #f0f0f0;
     }
     .leaflet-layer,

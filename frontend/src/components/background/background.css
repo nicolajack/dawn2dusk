@@ -45,12 +45,15 @@
 }
 
 .popup .leaflet-popup-content-wrapper {
-    border-radius: 10px;
-    border-color: #9497A8;
-    border-width: 20px;
-    background-color: #ffffff;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-left: 3px solid #FFB487;
     color: #161515;
     font-family: "National Park", sans-serif;
     font-weight: 600;
     font-size: 1.05rem;
+    line-height: 1.8;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
