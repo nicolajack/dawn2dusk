@@ -31,6 +31,8 @@ h1 {
     margin-top: 63vh;
     z-index: 3;
     pointer-events: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.7rem;
 }
 
 body.dark-mode {
