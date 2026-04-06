@@ -62,13 +62,3 @@ button:hover {
 body {
     overflow: hidden;
 }
-
-.aurora {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* Make sure it's visible but behind the map */
-    pointer-events: none; /* Allow clicks to pass through to the map */
-}
