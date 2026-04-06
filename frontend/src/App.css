@@ -40,8 +40,9 @@ body.dark-mode {
     background-repeat: no-repeat;
     background-size: cover;
         .container {
-        background-color: #1F2835;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        background: rgba(31, 40, 53, 0.4);
+        box-shadow: 0 8px 32px rgba(65, 87, 119, 0.4);
+        border-color: rgba(255, 255, 255, 0.1);
     }
 
     .popup .leaflet-popup-content-wrapper {
