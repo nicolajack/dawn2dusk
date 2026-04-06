@@ -57,10 +57,11 @@ body.dark-mode {
     }
 
     #navbar {
-        background-color: #1F2835;
+        background: rgba(31, 40, 53, 0.4);
+        border-color: rgba(255, 255, 255, 0.1);
     }
     button {
-        background-color: #1F2835;
+        background-color: transparent;
         color: #f0f0f0;
     }
 }
