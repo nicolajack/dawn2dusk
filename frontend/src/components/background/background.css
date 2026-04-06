@@ -37,6 +37,13 @@
     pointer-events: auto;
 }
 
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+    transition: filter 0.5s ease;
+}
+
 .popup .leaflet-popup-content-wrapper {
     border-radius: 10px;
     border-color: #9497A8;
