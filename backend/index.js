@@ -27,7 +27,7 @@ mongoclient.connect().then(() => {
 // setting up genAI model and setting system instructions
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-2.5-flash",
     systemInstruction: `You are a helpful assistant that finds a place in a different part of the world with similar sunrise and sunset times to a given location. 
     Respond with only the name of the place and its country, without any additional information. 
     Try and make neighboring regions display different similar parts of the world to make responses more interesting. 
