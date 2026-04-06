@@ -33,21 +33,6 @@
     pointer-events: auto;
 }
 
-button {
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-    pointer-events: auto;
-    z-index: 2;
-    border: 10px solid #ffffff;
-}
-
-button:hover {
-    background-color: #797d90;
-    color: #bead89;
-}
-
 .popup .leaflet-popup-content-wrapper {
     border-radius: 10px;
     border-color: #9497A8;
@@ -57,8 +42,4 @@ button:hover {
     font-family: "National Park", sans-serif;
     font-weight: 600;
     font-size: 1.05rem;
-}
-
-body {
-    overflow: hidden;
 }
