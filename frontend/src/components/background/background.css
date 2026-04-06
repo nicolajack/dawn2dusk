@@ -57,3 +57,31 @@
     line-height: 1.8;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .container {
+        width: 88%;
+        height: 60%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 94%;
+        height: 55%;
+        top: 4vh;
+        border-radius: 14px;
+    }
+
+    .map {
+        width: 97%;
+        height: 94%;
+        border-radius: 14px;
+    }
+
+    .popup .leaflet-popup-content-wrapper {
+        font-size: 0.9rem;
+    }
+}

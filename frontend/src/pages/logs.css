@@ -44,9 +44,9 @@
 }
 
 .logsLogo {
-    width: 80vh;
+    width: 100%;
+    max-width: 600px;
     height: auto;
-    top: 100vh;
     margin: auto;
     display: block;
 }
@@ -64,15 +64,52 @@
 #wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
+    gap: 12px;
 }
 
 #textbox {
     display: flex;
     flex-direction: column;
-    align-items: left;
-    justify-content: left;
-    margin-right: 50vw;
-    width: 40vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .logsContainer {
+        width: 90vw;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .logsContainer {
+        width: 95vw;
+        height: 85vh;
+        font-size: 14px;
+    }
+
+    .logsLogo {
+        max-width: 300px;
+        padding: 10px 0;
+    }
+
+    #wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .x {
+        align-self: flex-end;
+        margin-top: 8px;
+    }
+
+    .logsContainer li {
+        padding: 12px 8px;
+    }
 }

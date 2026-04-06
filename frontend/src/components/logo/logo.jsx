@@ -35,7 +35,7 @@ function Logo() {
     
     return (
         <div className="logo">
-            <img src={logoImage} alt="logo" width="650vh" height="auto"/>
+            <img src={logoImage} alt="logo" className="logo-img"/>
         </div>
     );   
 }

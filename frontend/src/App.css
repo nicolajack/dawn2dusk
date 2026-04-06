@@ -14,7 +14,6 @@ body {
     pointer-events: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     transition: background-color 0.5s ease, background-image 0.5s ease, color 0.3s ease;
 }
 
@@ -71,3 +70,35 @@ body.dark-mode {
     }
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    #info {
+        margin-top: 58vh;
+        font-size: 1.4rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    #info {
+        margin-top: 50vh;
+        font-size: 1rem;
+        padding: 0 16px;
+    }
+}
+
+/* Short viewports (landscape mobile) */
+@media (max-height: 500px) {
+    #info {
+        margin-top: 45vh;
+        font-size: 0.9rem;
+    }
+}

@@ -12,3 +12,35 @@
     position: relative;
     pointer-events: none;
 }
+
+.logo-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .logo {
+        width: 55%;
+        top: 56vh;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .logo {
+        width: 80%;
+        top: 48vh;
+        height: 14vh;
+        border-radius: 30px;
+    }
+}
+
+/* Short viewports */
+@media (max-height: 500px) {
+    .logo {
+        top: 42vh;
+        height: 12vh;
+    }
+}
