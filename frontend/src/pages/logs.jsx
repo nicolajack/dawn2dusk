@@ -3,13 +3,15 @@ import React from 'react';
 import logo from '../assets/d2dlogo.png';
 import { useEffect, useState } from 'react';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://technical-assessment-25-26-production.up.railway.app';
+
 function Logs(){
     const [logs, setLogs] = useState([]);
 
         useEffect(() => {
             const fetchLogs = async () => {
                 try {
-                    const response = await fetch('http://localhost:4000/logs' || 'https://technical-assessment-25-26-production.up.railway.app/logs');
+                    const response = await fetch(`${backendUrl}/logs`);
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
@@ -25,7 +27,7 @@ function Logs(){
 
         const deleteLog = async (id) => {
             try {
-                const response = await fetch('http://localhost:4000/delete' || 'https://technical-assessment-25-26-production.up.railway.app/delete', {
+                const response = await fetch(`${backendUrl}/delete`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
